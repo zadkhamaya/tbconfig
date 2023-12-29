@@ -10,6 +10,13 @@ import {
   RandomizedLight,
 } from "@react-three/drei";
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+
+// Dynamically import the Canvas component with SSR disabled
+const DynamicCanvas = dynamic(
+  () => import("@react-three/fiber").then((mod) => mod.Canvas),
+  { ssr: false }
+);
 
 export const App = ({ position = [-5, 2, 5], fov = 25 }) => {
   const [color1, setColor1] = useState("#404040"); // Default color for the first part
@@ -24,7 +31,7 @@ export const App = ({ position = [-5, 2, 5], fov = 25 }) => {
   return (
     <div>
       <div className="relative w-full h-screen">
-        <Canvas
+        <DynamicCanvas
           shadows
           eventSource={eventSource}
           eventPrefix="client"
@@ -37,7 +44,7 @@ export const App = ({ position = [-5, 2, 5], fov = 25 }) => {
             <Backdrop />
           </Center>
           <OrbitControls />
-        </Canvas>
+        </DynamicCanvas>
       </div>
       <div className="absolute bottom-20 left-20 z-10 bg-white bg-opacity-80 p-6 rounded-lg shadow-lg flex flex-col space-y-10">
         <div className="flex flex-col ">
