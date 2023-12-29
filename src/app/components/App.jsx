@@ -9,18 +9,24 @@ import {
   AccumulativeShadows,
   RandomizedLight,
 } from "@react-three/drei";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const App = ({ position = [-5, 2, 5], fov = 25 }) => {
   const [color1, setColor1] = useState("#404040"); // Default color for the first part
   const [color2, setColor2] = useState("#fee190"); // Default color for the second part
+  const [eventSource, setEventSource] = useState(null);
+
+  useEffect(() => {
+    // Set eventSource when the component mounts
+    setEventSource(document.getElementById("root"));
+  }, []);
 
   return (
     <div>
       <div className="relative w-full h-screen">
         <Canvas
           shadows
-          eventSource={document.getElementById("root")}
+          eventSource={eventSource}
           eventPrefix="client"
           camera={{ position, fov }}
         >
