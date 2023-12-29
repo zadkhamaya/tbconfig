@@ -24,8 +24,10 @@ export const App = ({ position = [-5, 2, 5], fov = 25 }) => {
   const [eventSource, setEventSource] = useState(null);
 
   useEffect(() => {
-    // Set eventSource when the component mounts
-    setEventSource(document.getElementById("root"));
+    if (typeof window !== "undefined") {
+      // Set eventSource when the component mounts and is on the client side
+      setEventSource(document.getElementById("root"));
+    }
   }, []);
 
   return (
