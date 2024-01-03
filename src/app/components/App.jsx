@@ -87,7 +87,12 @@ function Bench({ color1, color2 }) {
   return (
     <group dispose={null}>
       <mesh castShadow receiveShadow geometry={nodes.BK01_Leg003.geometry}>
-        <meshStandardMaterial attach="material" color={color1} />
+        <meshStandardMaterial
+          attach="material"
+          color={color1}
+          roughness={0.1}
+          metalness={0.1}
+        />
       </mesh>
       <mesh castShadow receiveShadow geometry={nodes.BK01_Leg003_1.geometry}>
         <meshStandardMaterial attach="material" color={color2} />
