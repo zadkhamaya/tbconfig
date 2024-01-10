@@ -32,7 +32,7 @@ export const App = ({ position = [-5, 2, 5], fov = 25 }) => {
 
   return (
     <div>
-      <div className="relative w-full h-screen">
+      <div className="relative w-[300px] h-[640px] m-auto">
         <DynamicCanvas
           shadows
           eventSource={eventSource}
@@ -48,7 +48,7 @@ export const App = ({ position = [-5, 2, 5], fov = 25 }) => {
           <OrbitControls />
         </DynamicCanvas>
       </div>
-      <div className="absolute bottom-20 left-20 z-10 bg-white bg-opacity-80 p-6 rounded-lg shadow-lg flex flex-col space-y-10">
+      <div className="absolute bottom-20  z-10 bg-white bg-opacity-80 p-6 rounded-lg shadow-lg flex flex-col space-y-10">
         <div className="flex flex-col ">
           <label className="text-3xl font-black">
             Tasblock Color Configurator
