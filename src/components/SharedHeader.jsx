@@ -1,5 +1,5 @@
 import React from "react";
 
-export const Header = () => {
+export const SharedHeader = () => {
   return <div>Header</div>;
 };
