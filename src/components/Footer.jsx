@@ -1,14 +1,12 @@
 import React from "react";
-import Image from "next/image";
-import { AlignJustify, Search, AppWindow } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <div className="absolute w-full z-5">
-      <div className="bg-slate-300 flex justify-between items-center ">
-        <AlignJustify />
-        <Image src="/TB-Logo.svg" width={30} height={100} alt="logo" />
-        <Search />
+    <div>
+      <div className="flex items-center ">
+        <p className="mx-auto font-medium text-gray-400">
+          &copy; 2024 Tasblock Creative
+        </p>
       </div>
     </div>
   );
